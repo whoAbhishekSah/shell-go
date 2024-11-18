@@ -4,15 +4,28 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strings"
 )
 
-// Ensures gofmt doesn't remove the "fmt" import in stage 1 (feel free to remove this!)
-var _ = fmt.Fprint
-
 func main() {
-	// Uncomment this block to pass the first stage
-	fmt.Fprint(os.Stdout, "$ ")
+	for {
+		// Uncomment this block to pass the first stage
+		fmt.Fprint(os.Stdout, "$ ")
 
-	// Wait for user input
-	bufio.NewReader(os.Stdin).ReadString('\n')
+		// Wait for user input
+		input, err:= bufio.NewReader(os.Stdin).ReadString('\n')
+		input = strings.TrimSuffix(input, "\n")
+
+		if err!=nil {
+			panic("error in reading command")
+		}
+		if !isValidCmd(input) {
+			fmt.Printf("%s: command not found\n", input)
+		}
+	
+	}
+}
+
+func isValidCmd(_ string) bool {
+	return false
 }
