@@ -8,7 +8,6 @@ import (
 
 	cmd "github.com/codecrafters-io/shell-starter-go/cmd/index"
 	"github.com/codecrafters-io/shell-starter-go/cmd/processor"
-	"github.com/codecrafters-io/shell-starter-go/utils"
 )
 
 func main() {
@@ -26,9 +25,6 @@ func main() {
 
 		splittedCmd := strings.Split(input, " ")
 		command := splittedCmd[0]
-		if !isValidCmd(command) {
-			fmt.Printf("%s: command not found\n", command)
-		}
 
 		// skip first item and join the values to get args str
 		args := strings.Join(splittedCmd[1:], " ")
@@ -37,10 +33,6 @@ func main() {
 	}
 }
 
-func isValidCmd(inputCmd string) bool {
-	validCommands := cmd.ValidCommands
-	return utils.StringFoundInArray(validCommands, inputCmd)
-}
 
 func processCmd(inputCmd string, args string) {
 	switch inputCmd {
@@ -53,6 +45,6 @@ func processCmd(inputCmd string, args string) {
 	case cmd.TypeCmd:
 		processor.ProcessTypeCmd(inputCmd, args)
 	default:
-		return
+		processor.Execute(inputCmd, args)
 	}
 }
