@@ -5,6 +5,7 @@ const (
 	EchoCmd = "echo"
 	TypeCmd = "type"
 	PwdCmd = "pwd"
+	CdCmd = "cd"
 )
 
-var ShellBuiltInCommands = []string{ExitCmd, EchoCmd, TypeCmd, PwdCmd}
+var ShellBuiltInCommands = []string{ExitCmd, EchoCmd, TypeCmd, PwdCmd, CdCmd}
