@@ -44,6 +44,8 @@ func processCmd(inputCmd string, args string) {
 		fmt.Println(args)
 	case cmd.TypeCmd:
 		processor.ProcessTypeCmd(inputCmd, args)
+	case cmd.PwdCmd:
+		processor.ProcessPwdCmd(inputCmd, args)
 	default:
 		processor.Execute(inputCmd, args)
 	}

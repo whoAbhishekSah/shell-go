@@ -4,7 +4,7 @@ const (
 	ExitCmd = "exit"
 	EchoCmd = "echo"
 	TypeCmd = "type"
+	PwdCmd = "pwd"
 )
 
-var ValidCommands = []string{ExitCmd, EchoCmd, TypeCmd}
-var ShellBuiltInCommands = []string{ExitCmd, EchoCmd, TypeCmd}
+var ShellBuiltInCommands = []string{ExitCmd, EchoCmd, TypeCmd, PwdCmd}
